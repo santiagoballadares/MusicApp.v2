@@ -18,10 +18,11 @@ class SearchMusic extends Component {
   handleSearchTextChange(searchText) {
     this.setState(
       {
-        searchText: searchText,
-        searchResult: []
+        searchText: searchText
       },
-      this.processSearchText()
+      () => { 
+        this.processSearchText();
+      }
     );
   }
 
@@ -55,7 +56,7 @@ class SearchMusic extends Component {
         { searchResult: res.data.data || [],
           loading: false
         },
-        () => console.log('Done searching music. ' + JSON.stringify(res.data.data))
+        () => console.log('Done searching music. ' + JSON.stringify())
       );
     })
     .catch(err => console.log('Error searching music: ' + JSON.stringify(err)));

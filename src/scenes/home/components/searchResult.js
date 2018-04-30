@@ -9,7 +9,7 @@ const SearchResult = (props) => {
   }
 
   return (
-    <div>
+    <div className="container">
       {items}
     </div>
   );
@@ -17,10 +17,13 @@ const SearchResult = (props) => {
 
 const resultRow = (item) => {
   return (
-    <div className='row' key={item.id}>
-      <div className='col-md-12'>
-        <div className='card'>
-          <div className='cardBody'>
+    <div className='card' key={item.id}>
+      <div className='cardBody'>
+        <div className='row'>
+          <div className='col-sm-1'>
+            <img src={item.picture_small} alt={item.name} />
+          </div>
+          <div className='col-sm-11'>
             <h4><Link to={`/artist/${item.id}`}>{item.name}</Link></h4>
           </div>
         </div>
